@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Demo</title>
+
+    <style>
+        a.test 
+        {
+            font-weight: bold;
+        }
+    </style>
+  </head>
+  <body>
+    <script src="/resources/jquery-1.9.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("a").click(function (event) {
+                event.preventDefault();
+                $(this).hide("slow");
+            });
+            $.get("data.json",
+               function (data) {
+                   $('body').append("Name: " + data.name) // John
+                            .append("Time: " + data.time); //  2pm
+               }, "json");
+        });
+    </script>
+
+      <a href="ClickEvent.html">ClickEvent</a>
+  </body>
+</html>
